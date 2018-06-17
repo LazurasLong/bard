@@ -1,0 +1,10 @@
+{
+  "name": "bard",
+  "version": "0.0.1",
+  "description": "Bring your D&D adventures to life with this simple tool",
+  "main": "index.js",
+  "repository": "git@github.com:kevoneil/bard.git",
+  "author": "Kevin O'Neil <kevinmoneil@live.com>",
+  "license": "MIT",
+  "private": false
+}
