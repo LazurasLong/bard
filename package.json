@@ -10,8 +10,10 @@
   "devDependencies": {
     "@types/react": "^16.4.1",
     "@types/react-dom": "^16.0.6",
+    "@types/react-redux": "^6.0.2",
     "@types/react-router": "^4.0.27",
     "@types/react-router-dom": "^4.2.7",
+    "@types/redux": "^3.6.0",
     "html-webpack-plugin": "^4.0.0-alpha",
     "ts-loader": "^4.4.1",
     "typescript": "^2.9.2",
@@ -24,8 +26,10 @@
     "express": "^4.16.3",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0"
   },
   "scripts": {
     "dev": "node_modules/.bin/webpack-serve --config ./client/webpack.config.js"
