@@ -5,7 +5,7 @@ export interface SetUsername {
   username: string
 }
 
-export type UsernameActionAction = SetUsername;
+export type UsernameAction = SetUsername;
 
 export function setUsername(username: string): SetUsername {
   return { 
