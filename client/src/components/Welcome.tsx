@@ -2,6 +2,9 @@ import * as React from 'react';
 import { Dispatch } from 'redux';
 import Title from './Title';
 import Input from './Input';
+import Submit from './Button';
+import Form from './Form';
+import CenteredWrapper from './CenteredWrapper';
 
 export interface Props {
   username?: string;
@@ -11,9 +14,16 @@ export interface Props {
 
 export default function Welcome({ username, usernameExists, setUsername }: Props) {
   return (
-    <React.Fragment>
-      <Title>Welcome</Title>
-      <Input onChange={setUsername} />
-    </React.Fragment>
+    <CenteredWrapper>
+      { usernameExists ? (
+        <Title>Welcome back, {username}!</Title>
+      ) : (
+        <Form onSubmit={setUsername}>
+          <Title>What is your name?</Title>
+          <Input id="username" name="username" />
+          <Input type="submit" value="Submit" />
+        </Form>
+      )}
+    </CenteredWrapper>
   );
 }

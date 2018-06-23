@@ -13,6 +13,7 @@ import { applyMiddleware, createStore } from 'redux';
 import { createLogger } from 'redux-logger';
 
 import 'normalize.css';
+import './index.css';
 
 const logger = createLogger();
 
