@@ -1,5 +1,3 @@
 export interface StoreState {
-  user: {
-    username: string
-  };
+  username: string
 }

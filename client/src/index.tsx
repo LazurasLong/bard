@@ -7,12 +7,23 @@ import {
 
 import App from './components/App';
 import { Provider } from 'react-redux';
+import { username } from './reducers/index';
 import { StoreState } from './types/index';
-// import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import { createLogger } from 'redux-logger';
+
+const logger = createLogger();
+
+const store = createStore(
+  username,
+  applyMiddleware(logger)
+);
+
+console.log(store.getState());
 
 ReactDOM.render((
   <Router>
-    <Provider>
+    <Provider store={store}>
       <Route exact path="/" component={App}/>
     </Provider>
   </Router>

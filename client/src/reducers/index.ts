@@ -2,14 +2,14 @@ import { UsernameAction } from '../actions/index';
 import { StoreState } from '../types/index';
 import { SET_USERNAME } from '../constants/index';
 
-const initialState = {
-  user: {}
+const initialState: StoreState = {
+  username: ""
 }
 
-export function user(state: StoreState, action: UsernameAction): StoreState {
+export function username(state: StoreState = initialState, action: UsernameAction): StoreState {
   switch(action.type) {
     case SET_USERNAME:
-      return { ...state, user: { username: state.user.username }};
+      return { ...state, username: state.username };
     default: 
       return state;
   }
