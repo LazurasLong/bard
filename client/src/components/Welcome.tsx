@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Dispatch } from 'redux';
 import Title from './Title';
 import Input from './Input';
-import Submit from './Button';
+import Submit from './Submit';
 import Form from './Form';
 import CenteredWrapper from './CenteredWrapper';
 
@@ -21,7 +21,7 @@ export default function Welcome({ username, usernameExists, setUsername }: Props
         <Form onSubmit={setUsername}>
           <Title>What is your name?</Title>
           <Input id="username" name="username" />
-          <Input type="submit" value="Submit" />
+          <Submit type="submit" value="Submit" />
         </Form>
       )}
     </CenteredWrapper>
