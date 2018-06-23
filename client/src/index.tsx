@@ -12,6 +12,8 @@ import { StoreState } from './types/index';
 import { applyMiddleware, createStore } from 'redux';
 import { createLogger } from 'redux-logger';
 
+import 'normalize.css';
+
 const logger = createLogger();
 
 const store = createStore(
