@@ -19,12 +19,17 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js']
+    alias: {
+      types: path.resolve(__dirname, 'src/types'),
+      components: path.resolve(__dirname, 'src/components'),
+      containers: path.resolve(__dirname, 'src/containers'),
+    },
+    extensions: ['.tsx', '.ts', '.js'],
   },
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'client/assets/index.html' 
+      template: 'client/assets/index.html',
     })
   ]
 };

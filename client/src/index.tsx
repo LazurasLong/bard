@@ -5,7 +5,7 @@ import {
   Route,
 } from 'react-router-dom'
 
-import App from './containers/App';
+import { WelcomeContainer } from './containers/Welcome';
 import { Provider } from 'react-redux';
 import { username } from './reducers/index';
 import { StoreState } from './types/index';
@@ -22,7 +22,7 @@ const store = createStore(
 ReactDOM.render((
   <Router>
     <Provider store={store}>
-      <Route exact path="/" component={App}/>
+      <Route exact path="/" component={WelcomeContainer}/>
     </Provider>
   </Router>
 ),
