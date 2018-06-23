@@ -13,7 +13,6 @@
     "@types/react-redux": "^6.0.2",
     "@types/react-router": "^4.0.27",
     "@types/react-router-dom": "^4.2.7",
-    "@types/redux": "^3.6.0",
     "@types/redux-logger": "^3.0.6",
     "html-webpack-plugin": "^4.0.0-alpha",
     "styled-components": "^3.3.3",

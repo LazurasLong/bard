@@ -1,19 +1,22 @@
 import * as React from 'react';
-import Title from "../components/Title";
-import { StoreState } from '../types/index';
-import { connect } from 'react-redux';
+import * as actions from '../actions/';
 
-export function mapStateToProps({ username }: StoreState) {
+import Welcome from "../components/Welcome";
+import { StoreState } from '../types/index';
+import { connect, Dispatch } from 'react-redux';
+
+export function mapStateToProps({ username, usernameExists }: StoreState) {
   return {
-    username
+    username,
+    usernameExists
   };
 }
 
-const Welcome = (state: StoreState) => {
-  if (state.usernameExists) {
-    return <Title>Welcome, {state.username}!</Title>;
-  }
-  return <Title>What's your name?</Title>
+export function mapDispatchToProps(dispatch: Dispatch<actions.UsernameAction>) {
+  return {
+    setUsername: (event: React.ChangeEvent<HTMLInputElement>) => 
+      dispatch(actions.setUsername(event.currentTarget.value)),
+  };
 }
 
-export const WelcomeContainer = connect(mapStateToProps)(Welcome)
+export const WelcomeContainer = connect(mapStateToProps, mapDispatchToProps)(Welcome)

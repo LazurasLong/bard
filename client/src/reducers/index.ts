@@ -12,8 +12,8 @@ export function username(state: StoreState = initialState, action: UsernameActio
     case SET_USERNAME:
       return { 
         ...state, 
-        username: state.username,
-        usernameExists: state.username.length > 0
+        username: action.username,
+        usernameExists: action.username.length > 0
       };
     default: 
       return state;
