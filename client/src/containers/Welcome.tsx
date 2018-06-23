@@ -10,7 +10,10 @@ export function mapStateToProps({ username }: StoreState) {
 }
 
 const Welcome = (state: StoreState) => {
-  return <Title>Welcome, {state.username}!</Title>;
+  if (state.usernameExists) {
+    return <Title>Welcome, {state.username}!</Title>;
+  }
+  return <Title>What's your name?</Title>
 }
 
 export const WelcomeContainer = connect(mapStateToProps)(Welcome)
