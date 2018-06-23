@@ -1,3 +1,4 @@
 export interface StoreState {
-  username: string
+  username: string,
+  usernameExists: boolean
 }
