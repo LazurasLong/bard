@@ -5,7 +5,7 @@ import {
   Route,
 } from 'react-router-dom'
 
-import App from './components/App';
+import App from './containers/App';
 import { Provider } from 'react-redux';
 import { username } from './reducers/index';
 import { StoreState } from './types/index';
@@ -18,8 +18,6 @@ const store = createStore(
   username,
   applyMiddleware(logger)
 );
-
-console.log(store.getState());
 
 ReactDOM.render((
   <Router>
