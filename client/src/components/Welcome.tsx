@@ -3,6 +3,7 @@ import { Dispatch } from 'redux';
 
 import Label from './Label';
 import Title from './Title';
+import Link from './Link';
 import Input from './Input';
 import Submit from './Submit';
 import Form from './Form';
@@ -18,7 +19,10 @@ export default function Welcome({ username, usernameExists, setUsername }: Props
   return (
     <CenteredWrapper>
       { usernameExists ? (
-        <Title>Welcome back, {username}!</Title>
+        <React.Fragment>
+          <Title>Welcome back, {username}!</Title>
+          <Link to="/adventures">Adventures</Link>
+        </React.Fragment>
       ) : (
         <Form onSubmit={setUsername}>
           <Label htmlFor="username">What is your name?</Label>
