@@ -22,8 +22,8 @@ export default function Welcome({ username, usernameExists, setUsername }: Props
       ) : (
         <Form onSubmit={setUsername}>
           <Label htmlFor="username">What is your name?</Label>
-          <Input id="username" name="username" />
-          <Submit type="Submit" value="Submit" />
+          <Input id="username" name="username" required />
+          <Submit type="Submit" />
         </Form>
       )}
     </CenteredWrapper>

@@ -18,7 +18,7 @@ export function mapStateToProps({ username, usernameExists }: StoreState) {
 
 export function mapDispatchToProps(dispatch: Dispatch<actions.UsernameAction>) {
   return {
-    setUsername: (event: FormEvent) => {
+    setUsername: (event: FormEvent): void => {
       event.preventDefault();
       dispatch(actions.setUsername(event.currentTarget.username.value));
     }

@@ -12,4 +12,8 @@ export default styled.input`
   &:hover {
     background-color: #4e54fb;
   }
+
+  &:disabled {
+    background-color: #f1f1f1;
+  }
 `;
