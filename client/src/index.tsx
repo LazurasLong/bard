@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom'
 
 import { WelcomeContainer } from './containers/Welcome';
+import { AdventureContainer } from './containers/Adventures';
 import { Provider } from 'react-redux';
 import { username } from './reducers/index';
 import { StoreState } from './types/index';
@@ -25,7 +26,10 @@ const store = createStore(
 ReactDOM.render((
   <Router>
     <Provider store={store}>
-      <Route exact path="/" component={WelcomeContainer}/>
+      <main>
+        <Route exact path="/" component={WelcomeContainer}/>
+        <Route path="/adventures" component={AdventureContainer}/>
+      </main>
     </Provider>
   </Router>
 ),

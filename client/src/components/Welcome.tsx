@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Dispatch } from 'redux';
+
 import Label from './Label';
 import Title from './Title';
 import Input from './Input';
@@ -22,7 +23,7 @@ export default function Welcome({ username, usernameExists, setUsername }: Props
         <Form onSubmit={setUsername}>
           <Label htmlFor="username">What is your name?</Label>
           <Input id="username" name="username" />
-          <Submit type="submit" value="Submit" />
+          <Submit type="Submit" value="Submit" />
         </Form>
       )}
     </CenteredWrapper>
