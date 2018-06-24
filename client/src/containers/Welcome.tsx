@@ -5,6 +5,10 @@ import Welcome from "../components/Welcome";
 import { StoreState } from '../types/index';
 import { connect, Dispatch } from 'react-redux';
 
+interface FormEvent extends React.FormEvent<HTMLInputElement> {
+  currentTarget: any;
+}
+
 export function mapStateToProps({ username, usernameExists }: StoreState) {
   return {
     username,
@@ -14,8 +18,10 @@ export function mapStateToProps({ username, usernameExists }: StoreState) {
 
 export function mapDispatchToProps(dispatch: Dispatch<actions.UsernameAction>) {
   return {
-    setUsername: (event: React.ChangeEvent<HTMLInputElement>) => 
-      dispatch(actions.setUsername(event.currentTarget.value)),
+    setUsername: (event: FormEvent) => {
+      event.preventDefault();
+      dispatch(actions.setUsername(event.currentTarget.username.value));
+    }
   };
 }
 
