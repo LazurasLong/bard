@@ -4,5 +4,5 @@ export interface UserState {
 }
 
 export interface StoreState {
-  [user: string]: UserState
+  user: UserState,
 }
