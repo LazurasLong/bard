@@ -1,15 +1,19 @@
 import * as constants from './constants';
+import { StoreState, UserState } from './types';
 
-export interface SetUsername {
+export interface SetUsername extends UserState {
   type: constants.SET_USERNAME,
-  username: string
+  user: UserState
 }
 
 export type UsernameAction = SetUsername;
 
-export function setUsername(username: string): SetUsername {
+export function setUsername(user: UserState): SetUsername {
   return { 
     type: constants.SET_USERNAME,
-    username 
+    user: {
+      username: user.username,
+      usernameExists: user.username.length > 0
+    },
   }
 }

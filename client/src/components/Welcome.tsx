@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Dispatch } from 'redux';
+import { UserState } '../store/types';
 
 import Label from './Label';
 import Title from './Title';
@@ -10,17 +11,17 @@ import Form from './Form';
 import CenteredWrapper from './CenteredWrapper';
 
 export interface Props {
-  username?: string;
-  usernameExists?: boolean;
+  user?: UserState,
   setUsername?: Dispatch;
 }
 
-export default function Welcome({ username, usernameExists, setUsername }: Props) {
+export default function Welcome({ user, setUsername }: Props) {
+  console.log(user);
   return (
     <CenteredWrapper>
-      { usernameExists ? (
+      { user.usernameExists ? (
         <React.Fragment>
-          <Title>Welcome back, {username}!</Title>
+          <Title>Welcome back, {user.username}!</Title>
           <Link to="/adventures">Adventures</Link>
         </React.Fragment>
       ) : (
