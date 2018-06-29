@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Dispatch } from 'redux';
 import { UserState } from 'Types';
+import { Redirect } from 'react-router-dom';
 
 import Label from './Label';
 import Title from './Title';
@@ -20,8 +21,7 @@ export default function Welcome({ user, setUsername }: Props) {
     <CenteredWrapper>
       { user.usernameExists ? (
         <React.Fragment>
-          <Title>Welcome back, {user.username}!</Title>
-          <Link to="/adventures">Adventures</Link>
+          <Redirect to="/dashboard" />
         </React.Fragment>
       ) : (
         <Form onSubmit={setUsername}>
