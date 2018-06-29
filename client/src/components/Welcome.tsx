@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Dispatch } from 'redux';
-import { UserState } '../store/types';
+import { UserState } from '../store/types';
 
 import Label from './Label';
 import Title from './Title';
