@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as actions from '../actions/';
+import * as actions from '../store/actions';
 
 import Welcome from "../components/Welcome";
 import { StoreState } from '../types/index';

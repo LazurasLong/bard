@@ -8,20 +8,10 @@ import {
 import { WelcomeContainer } from './containers/Welcome';
 import { AdventureContainer } from './containers/Adventures';
 import { Provider } from 'react-redux';
-import { username } from './reducers/index';
-import { StoreState } from './types/index';
-import { applyMiddleware, createStore } from 'redux';
-import { createLogger } from 'redux-logger';
+import store from './store/index';
 
 import 'normalize.css';
 import './index.css';
-
-const logger = createLogger();
-
-const store = createStore(
-  username,
-  applyMiddleware(logger)
-);
 
 ReactDOM.render((
   <Router>

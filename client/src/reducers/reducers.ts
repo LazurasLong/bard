@@ -1,6 +1,6 @@
-import { UsernameAction } from '../actions/index';
+import { UsernameAction } from './actions';
 import { StoreState } from '../types/index';
-import { SET_USERNAME } from '../constants/index';
+import { SET_USERNAME } from './constants';
 
 const initialState: StoreState = {
   username: "",

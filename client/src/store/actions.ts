@@ -1,4 +1,4 @@
-import * as constants from '../constants/index';
+import * as constants from './constants';
 
 export interface SetUsername {
   type: constants.SET_USERNAME,
