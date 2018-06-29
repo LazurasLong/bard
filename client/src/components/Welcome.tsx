@@ -16,7 +16,6 @@ export interface Props {
 }
 
 export default function Welcome({ user, setUsername }: Props) {
-  console.log(user);
   return (
     <CenteredWrapper>
       { user.usernameExists ? (

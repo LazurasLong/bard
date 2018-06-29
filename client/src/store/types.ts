@@ -1,6 +1,6 @@
 export interface UserState {
-  username?: string,
-  usernameExists?: boolean,
+  username: string,
+  usernameExists: boolean,
 }
 
 export interface StoreState {

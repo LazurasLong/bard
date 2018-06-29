@@ -8,7 +8,7 @@ import {
 import { WelcomeContainer } from './containers/Welcome';
 import { AdventureContainer } from './containers/Adventures';
 import { Provider } from 'react-redux';
-import store from './store/index';
+import store from './store';
 
 import 'normalize.css';
 import './index.css';

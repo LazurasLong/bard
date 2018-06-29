@@ -1,4 +1,4 @@
-import { username } from './reducers';
+import reducers from './reducers';
 import { compose, applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { createLogger } from 'redux-logger';
@@ -13,6 +13,6 @@ const enhancers = composeWithDevTools(
 );
 
 export default createStore(
-  username,
+  reducers,
   enhancers
 );
