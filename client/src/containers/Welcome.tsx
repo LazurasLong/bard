@@ -3,7 +3,8 @@ import * as actions from '../store/actions';
 
 import Welcome from "../components/Welcome";
 import { StoreState } from '../types/index';
-import { connect, Dispatch } from 'react-redux';
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 
 interface FormEvent extends React.FormEvent<HTMLInputElement> {
   currentTarget: any;
