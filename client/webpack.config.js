@@ -24,7 +24,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      types: path.resolve(__dirname, 'src/types'),
+      Types: path.resolve(__dirname, 'src/types'),
       components: path.resolve(__dirname, 'src/components'),
       containers: path.resolve(__dirname, 'src/containers'),
     },

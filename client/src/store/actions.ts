@@ -1,5 +1,5 @@
 import * as constants from './constants';
-import { StoreState, UserState } from './types';
+import { StoreState, UserState } from 'Types';
 
 export interface SetUsername {
   type: constants.SET_USERNAME,

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as actions from '../store/actions';
-import { UserState, StoreState } from '../store/types';
+import { UserState, StoreState } from 'Types';
 
 import Welcome from "../components/Welcome";
 import { connect } from 'react-redux';

@@ -1,5 +1,5 @@
 import { UsernameAction } from '../actions';
-import { StoreState, UserState } from '../types';
+import { StoreState, UserState } from 'Types';
 import { SET_USERNAME } from '../constants';
 
 const initialState: StoreState = {
