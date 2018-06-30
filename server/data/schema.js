@@ -1,3 +1,4 @@
+const find = require('lodash/find');
 const { makeExecutableSchema } = require('graphql-tools');
 
 const users = [
@@ -30,7 +31,7 @@ const typeDefs = `
 
   type Query { 
     users: [User],
-    user: User,
+    user(id: Int!): User
     adventures: [Adventure],
   }
 `;
@@ -39,7 +40,7 @@ const resolvers = {
   Query: { 
     users: () => users,
     adventures: () => adventures,
-    user: (_, { id }) => find(user, { id }),
+    user: (_, { id }) => find(users, { id }),
   },
 };
 
