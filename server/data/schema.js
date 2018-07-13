@@ -4,7 +4,7 @@ const { makeExecutableSchema } = require('graphql-tools');
 const users = [
   {
     id: 1,
-    username: 'Kevin',
+    username: 'admin',
     adventures: [],
     isAdmin: true,
   }
