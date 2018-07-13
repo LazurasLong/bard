@@ -4,6 +4,8 @@ import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom'
+import ApolloClient from 'apollo-boost';
+import gql from "graphql-tag";
 
 import { WelcomeContainer } from './containers/Welcome';
 import { AdventureContainer } from './containers/Adventures';
@@ -12,6 +14,20 @@ import store from './store';
 
 import 'normalize.css';
 import './index.css';
+
+const client = new ApolloClient({
+  uri: 'http://localhost:3000/graphql'
+});
+
+client
+  .query({
+    query: gql`
+      {
+        users 
+      }
+    `
+  })
+  .then(result => console.log(result));
 
 ReactDOM.render((
   <Router>

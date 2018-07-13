@@ -1,15 +1,6 @@
 const find = require('lodash/find');
 const { makeExecutableSchema } = require('graphql-tools');
 
-const users = [
-  {
-    id: 1,
-    username: 'admin',
-    adventures: [],
-    isAdmin: true,
-  }
-];
-
 const typeDefs = `
   type User {
     id: Int!,
