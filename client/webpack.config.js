@@ -1,5 +1,7 @@
 const path = require('path');
+const convert = require('koa-connect');
 const proxy = require('http-proxy-middleware');
+const history = require('connect-history-api-fallback');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -41,6 +43,9 @@ module.exports = {
 
 module.exports.serve = {
   add: (app, middleware, options) => {
-    app.use(proxy('/graphql', 'http://localhost:3000/graphql'));
+    app.use(convert(proxy('/graphql', { 
+      target: 'http://localhost:3000'
+    })));
+    app.use(convert(history()));
   }
 };

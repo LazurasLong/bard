@@ -29,7 +29,6 @@ const typeDefs = `
 
 const resolvers = {
   Query: { 
-    users: () => users,
     adventures: () => adventures,
     user: (_, { id }) => find(users, { id }),
   },
