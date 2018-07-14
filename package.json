@@ -49,7 +49,7 @@
     "redux-logger": "^3.0.6"
   },
   "scripts": {
-    "server": "node server/app.js",
-    "dev": "node_modules/.bin/webpack-serve --config ./client/webpack.config.js"
+    "dev:server": "node server/app.js",
+    "dev:client": "node_modules/.bin/webpack-serve --config ./client/webpack.config.js"
   }
 }
