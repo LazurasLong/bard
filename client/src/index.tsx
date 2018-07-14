@@ -23,7 +23,9 @@ client
   .query({
     query: gql`
       {
-        users 
+        users {
+          id
+        }
       }
     `
   })
