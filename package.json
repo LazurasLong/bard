@@ -52,6 +52,6 @@
   },
   "scripts": {
     "dev:server": "node server/app.js",
-    "dev:client": "node_modules/.bin/webpack-serve --config ./client/webpack.config.js"
+    "dev:client": "node_modules/.bin/webpack-serve --config ./client/webpack.config.js --port 3000"
   }
 }

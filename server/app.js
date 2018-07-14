@@ -14,4 +14,4 @@ app.use(
 
 app.get('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 
-app.listen(3000);
+app.listen(8080);

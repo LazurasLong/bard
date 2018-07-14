@@ -44,7 +44,7 @@ module.exports = {
 module.exports.serve = {
   add: (app, middleware, options) => {
     app.use(convert(proxy('/graphql', { 
-      target: 'http://localhost:3000'
+      target: 'http://localhost:8080'
     })));
     app.use(convert(history()));
   }
