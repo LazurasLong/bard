@@ -1,4 +1,5 @@
 const path = require('path');
+const proxy = require('http-proxy-middleware');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -36,4 +37,10 @@ module.exports = {
       template: 'client/assets/index.html',
     })
   ]
+};
+
+module.exports.serve = {
+  add: (app, middleware, options) => {
+    app.use(proxy('/graphql', 'http://localhost:3000/graphql'));
+  }
 };
