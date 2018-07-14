@@ -4,13 +4,12 @@ import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom'
+
 import ApolloClient from 'apollo-boost';
-import gql from "graphql-tag";
+import { ApolloProvider } from "react-apollo";
 
 import { WelcomeContainer } from './containers/Welcome';
-import { AdventureContainer } from './containers/Adventures';
-import { Provider } from 'react-redux';
-import store from './store';
+import AdventureContainer from './containers/Adventures';
 
 import 'normalize.css';
 import './index.css';
@@ -19,26 +18,14 @@ const client = new ApolloClient({
   uri: 'http://localhost:3000/graphql'
 });
 
-client
-  .query({
-    query: gql`
-      {
-        users {
-          id
-        }
-      }
-    `
-  })
-  .then(result => console.log(result));
-
 ReactDOM.render((
   <Router>
-    <Provider store={store}>
+    <ApolloProvider client={client}>
       <main>
-        <Route exact path="/" component={WelcomeContainer}/>
-        <Route path="/adventures" component={AdventureContainer}/>
+        <Route exact path="/" component={AdventureContainer}/>
+        {/* <Route path="/adventures" component={AdventureContainer}/> */}
       </main>
-    </Provider>
+    </ApolloProvider>
   </Router>
 ),
   document.getElementById('root') as HTMLElement

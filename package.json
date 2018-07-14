@@ -20,7 +20,6 @@
     "html-webpack-plugin": "^4.0.0-alpha",
     "http-proxy-middleware": "^0.18.0",
     "koa-connect": "^2.0.1",
-    "redux-devtools-extension": "^2.13.5",
     "style-loader": "^0.21.0",
     "styled-components": "^3.3.3",
     "ts-loader": "^4.4.1",
@@ -33,6 +32,7 @@
   },
   "dependencies": {
     "apollo-boost": "^0.1.10",
+    "apollo-link-state": "^0.4.1",
     "apollo-server": "^2.0.0-rc.5",
     "apollo-server-express": "^1.3.6",
     "express": "^4.16.3",
@@ -44,11 +44,8 @@
     "react": "^16.4.1",
     "react-apollo": "^2.1.9",
     "react-dom": "^16.4.1",
-    "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1",
-    "redux": "^4.0.0",
-    "redux-logger": "^3.0.6"
+    "react-router-dom": "^4.3.1"
   },
   "scripts": {
     "dev:server": "node server/app.js",
