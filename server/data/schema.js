@@ -14,7 +14,7 @@ const typeDefs = `
   }
 
   type Adventure { 
-    id: Int!,
+    id: String!,
     title: String,
     number: Int,
     campaign: String 
