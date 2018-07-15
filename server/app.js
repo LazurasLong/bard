@@ -5,6 +5,9 @@ const schema = require('./data/schema');
 const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
 const app = express();
 
+const { Pool, Client } = require('pg');
+const pool = new Pool();
+
 app.use(
   '/graphql', 
   bodyParser.json(), 
