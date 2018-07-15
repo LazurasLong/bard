@@ -5,7 +5,7 @@ import {
   Route,
 } from 'react-router-dom'
 
-import ApolloClient from 'apollo-boost';
+import client from './client';
 import { ApolloProvider } from "react-apollo";
 
 import { WelcomeContainer } from './containers/Welcome';
@@ -13,10 +13,6 @@ import AdventureContainer from './containers/Adventures';
 
 import 'normalize.css';
 import './index.css';
-
-const client = new ApolloClient({
-  uri: 'http://localhost:3000/graphql'
-});
 
 ReactDOM.render((
   <Router>

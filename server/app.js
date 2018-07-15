@@ -1,5 +1,4 @@
 const express = require('express');
-const apollo = require('apollo-server-express');
 const bodyParser = require('body-parser');
 const schema = require('./data/schema');
 
