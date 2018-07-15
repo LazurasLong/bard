@@ -3,8 +3,8 @@ const { makeExecutableSchema } = require('graphql-tools');
 
 const typeDefs = `
   type User {
-    id: Int!,
-    username: String,
+    id: String!,
+    name: String!,
     isAdmin: Boolean,
     adventures: [Adventure]
   }
@@ -25,12 +25,25 @@ const typeDefs = `
     user(id: Int!): User
     adventures: [Adventure],
   }
+
+  type Mutation {
+    createUser (
+      id: String!
+      name: String!
+    ): User
+  }
 `;
 
 const resolvers = {
   Query: { 
-    user: (_, { id }) => find(users, { id }),
+    user: (_, { name }) => find(users, { id }),
   },
+  
+  Mutation: {
+    createUser: (_, { id, name }) => {
+      return { id, name };
+    }
+  }
 };
 
 module.exports = makeExecutableSchema({

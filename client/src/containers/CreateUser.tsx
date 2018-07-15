@@ -5,39 +5,41 @@ import { Mutation } from 'react-apollo';
 import Form from '../components/Form';
 import Submit from '../components/Submit';
 
-interface Input extends React.InputHTMLAttributes<HTMLInputElement> {
-  value: string;
-}
-// interface FormEvent extends React.FormEvent<HTMLInputElement> {
-//   currentTarget: any;
-// }
-
 const CREATE_USER = gql`
-  {
-    mutation createUser($name: String!) {
-      createUser(name: $name) {
-        name
-      }
+  mutation createUser($id: String!, $name: String!) {
+    createUser(id: $id, name: $name) {
+      id,
+      name
     }
   }
 `;
 
-export default () => (
-  <Mutation mutation={CREATE_USER}>
-   {(createUser, { data }) => (
-     <Form onSubmit={e => {
-       let input: Input;
+export default () => {
+  let input: any;
 
-       e.preventDefault();
-       createUser({ variables: { name: input.value }});
-       input.value = '';
-     }}>
-      <input 
-        ref={node => {
-          // input = node;
-        }} />
-        <Submit>Create User</Submit>
-     </Form>
-   )}
-  </Mutation>
-);
+  return (
+    <Mutation mutation={CREATE_USER}>
+      {(createUser, { data }) => (
+        <div>
+          <Form
+            onSubmit={e => {
+              e.preventDefault();
+              createUser({ variables: 
+                { 
+                  id: '123',
+                  name: input.value
+                } 
+              });
+              input.value = "";
+            }}
+          >
+            <input ref={node => {
+              input = node;
+            }} />
+            <input type="submit" value="submit" />
+          </Form>
+        </div>
+      )}
+    </Mutation>
+  );
+};
