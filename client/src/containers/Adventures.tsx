@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import Adventures from '../components/Adventures';
+import Adventures from '../components/Adventures';
 
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
@@ -19,7 +19,7 @@ export default () => (
       if (error) return `Error! ${error.message}`;
 
       return (
-        <ul />
+        <Adventures adventures={data.adventures} />
       );
     }}
   </Query>
