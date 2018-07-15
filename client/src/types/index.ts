@@ -3,7 +3,7 @@ export default interface ThemeInterface {
   primaryColorInverted: string;
 }
 
-export interface Adventures {
+export interface Adventure {
   id: string;
   title: string;
   number: number;
