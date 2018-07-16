@@ -20,6 +20,7 @@
     "style-loader": "^0.21.0",
     "styled-components": "^3.3.3",
     "ts-loader": "^4.4.1",
+    "ts-node": "^7.0.0",
     "tslint": "^5.10.0",
     "typescript": "^2.9.2",
     "webpack": "^4.12.0",
@@ -47,6 +48,6 @@
   },
   "scripts": {
     "dev:server": "node server/app.js",
-    "dev:client": "node_modules/.bin/webpack-serve --config ./client/webpack.config.js --port 3000"
+    "dev:client": "npx webpack-serve --config ./client/webpack.config.js --port 3000"
   }
 }
