@@ -1,4 +1,4 @@
-const express = require('express');
+import * as express from 'express';
 const bodyParser = require('body-parser');
 const schema = require('./data/schema');
 

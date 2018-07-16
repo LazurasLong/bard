@@ -47,7 +47,7 @@
     "react-router-dom": "^4.3.1"
   },
   "scripts": {
-    "dev:server": "node server/app.js",
+    "dev:server": "ts-node server/app.ts",
     "dev:client": "npx webpack-serve --config ./client/webpack.config.js --port 3000"
   }
 }
