@@ -1,6 +1,8 @@
-const db = require('../db');
-const find = require('lodash/find');
-const { makeExecutableSchema } = require('graphql-tools');
+import db from '../db';
+import find from 'lodash/find';
+import { makeExecutableSchema } from 'graphql-tools';
+
+let users: Array<Object> = [];
 
 const typeDefs = `
   type User {
@@ -37,7 +39,7 @@ async function getUsers() {
 
     return res.rows;
   } catch (err) {
-    throw new Error("Could not retrieve users!");
+    throw new Error(err);
   }
 }
 
@@ -54,7 +56,7 @@ async function insertUser(id, name) {
 const resolvers = {
   Query: { 
     users: async () =>  await getUsers(),
-    user: (_, { name }) => find(users, { id }),
+    user: (_, { id }) => find(users, { id }),
   },
   
   Mutation: {
@@ -65,7 +67,7 @@ const resolvers = {
   }
 };
 
-module.exports = makeExecutableSchema({
+export default makeExecutableSchema({
   typeDefs,
   resolvers
 });

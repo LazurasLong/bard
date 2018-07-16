@@ -1,6 +1,6 @@
 import * as express from 'express';
-const bodyParser = require('body-parser');
-const schema = require('./data/schema');
+import * as bodyParser from 'body-parser';
+import schema from './data/schema';
 
 const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
 const app = express();
@@ -11,6 +11,11 @@ app.use(
   graphqlExpress({ schema })
 );
 
-app.get('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
+app.get(
+  '/graphiql', 
+  graphiqlExpress({ 
+    endpointURL: '/graphql' 
+  })
+);
 
 app.listen(8080);
