@@ -53,10 +53,7 @@ async function insertUser(id, name) {
 
 const resolvers = {
   Query: { 
-    users: async function () {
-      const res = await getUsers();
-      return res;
-    },
+    users: async () =>  await getUsers(),
     user: (_, { name }) => find(users, { id }),
   },
   
