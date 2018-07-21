@@ -2,6 +2,7 @@ import * as React from 'react';
 import gql from 'graphql-tag';
 import { Mutation } from 'react-apollo';
 
+import uuid from 'uuid';
 import Form from '../components/Form';
 import Submit from '../components/Submit';
 
@@ -26,7 +27,7 @@ export default () => {
               e.preventDefault();
               createUser({ variables: 
                 { 
-                  id: '123',
+                  id: uuid(),
                   name: input.value
                 } 
               });
