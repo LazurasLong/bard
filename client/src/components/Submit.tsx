@@ -6,6 +6,7 @@ export default styled.input`
   padding: 10px 15px;
   border: 0;
   cursor: pointer;
+  text-align: center;
   color: white;
   background-color: #2e35ff;
 

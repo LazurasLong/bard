@@ -1,10 +1,14 @@
+
+import * as uuid from 'uuid/v4';
 import * as React from 'react';
 import gql from 'graphql-tag';
 import { Mutation } from 'react-apollo';
+import createHistory from 'history/createBrowserHistory';
 
-import uuid from 'uuid';
 import Form from '../components/Form';
 import Submit from '../components/Submit';
+
+const history = createHistory();
 
 const CREATE_USER = gql`
   mutation createUser($id: String!, $name: String!) {
@@ -14,6 +18,10 @@ const CREATE_USER = gql`
     }
   }
 `;
+
+const handleSubmit = (event: React.SyntheticEvent) => {
+  history.push('/adventures');
+}; 
 
 export default () => {
   let input: any;
@@ -32,12 +40,13 @@ export default () => {
                 } 
               });
               input.value = "";
+              handleSubmit(e);
             }}
           >
             <input ref={node => {
               input = node;
-            }} />
-            <input type="submit" value="submit" />
+            }} required />
+            <Submit type="Submit" value="Submit" />
           </Form>
         </div>
       )}

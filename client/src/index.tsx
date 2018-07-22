@@ -16,15 +16,15 @@ import 'normalize.css';
 import './index.css';
 
 ReactDOM.render((
-  <Router>
-    <ApolloProvider client={client}>
+  <ApolloProvider client={client}>
+    <Router>
       <main>
         <Route exact path="/" component={WelcomeContainer}/>
         <Route path="/create-user" component={CreateUser} />
         <Route path="/adventures" component={AdventureContainer} />
       </main>
-    </ApolloProvider>
-  </Router>
+    </Router>
+  </ApolloProvider>
 ),
   document.getElementById('root') as HTMLElement
 )
