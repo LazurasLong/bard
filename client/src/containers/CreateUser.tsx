@@ -7,6 +7,7 @@ import { Mutation } from 'react-apollo';
 import Form from '../components/Form';
 import Link from '../components/Link';
 import Submit from '../components/Submit';
+import { InputHTMLAttributes } from 'react';
 interface Props {}
 interface State {
   username: string,
@@ -29,11 +30,15 @@ class CreateUser extends React.Component<Props, State> {
     this.state = {
       username: "",
       hasSubmittedUsername: false
-    }
+    };
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(e) {
-    event.preventDefault();
+  handleChange(event: React.SyntheticEvent<HTMLInputElement>) {
+    this.setState({
+      username: event.currentTarget.value
+    })
   }
 
   render() {
@@ -42,18 +47,17 @@ class CreateUser extends React.Component<Props, State> {
     return (
       <Mutation mutation={CREATE_USER}>
         {(createUser, { data }) => (
-          <div>
+          <React.Fragment>
             <Form
               onSubmit={e => {
                 e.preventDefault();
+
                 createUser({ variables: 
                   { 
                     id: uuid(),
                     name: input.value
                   } 
                 });
-
-                input.value = "";
 
                 this.setState({
                   hasSubmittedUsername: true
@@ -63,12 +67,13 @@ class CreateUser extends React.Component<Props, State> {
               <input ref={node => {
                 input = node;
               }} onChange={this.handleChange} required />
-              <Submit type="Submit" value="Submit" />
+
+              <Submit disabled={this.state.username.length < 1 } type="Submit" value="Submit" />
             </Form>
             { this.state.hasSubmittedUsername &&
               <Link to="/adventures">Start an adventure!</Link>
             }
-          </div>
+          </React.Fragment>
         )}
       </Mutation>
     )
