@@ -7,7 +7,8 @@ import { Mutation } from 'react-apollo';
 import Form from '../components/Form';
 import Link from '../components/Link';
 import Submit from '../components/Submit';
-import { InputHTMLAttributes } from 'react';
+import { withClientState } from 'apollo-link-state';
+
 interface Props {}
 interface State {
   username: string,
