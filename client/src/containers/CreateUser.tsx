@@ -35,7 +35,7 @@ class CreateUser extends React.Component<Props, State> {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event: React.SyntheticEvent<HTMLInputElement>) {
+  handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     this.setState({
       username: event.currentTarget.value
     })
