@@ -76,9 +76,6 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 --
 
 COPY public.users (id, name, is_admin) FROM stdin;
-94ef1202-3b8c-4105-ad86-61c497486c95	admin	f
-77cccef6-c96e-4f1f-8696-eea009f3f6da	face	f
-eb7fda9a-caa5-4b71-97d8-fb5583efe235	face	f
 \.
 
 
