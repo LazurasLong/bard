@@ -6,15 +6,15 @@ const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
 const app = express();
 
 app.use(
-  '/graphql', 
-  bodyParser.json(), 
+  '/graphql',
+  bodyParser.json(),
   graphqlExpress({ schema })
 );
 
 app.get(
-  '/graphiql', 
-  graphiqlExpress({ 
-    endpointURL: '/graphql' 
+  '/graphiql',
+  graphiqlExpress({
+    endpointURL: '/graphql'
   })
 );
 
