@@ -3,6 +3,8 @@
 
 Bard is a tool that will allow you to run your games with ease. 
 
+## Setup
+First, you're going to need to install postgres.
 
 ## License
 Permission is hereby granted, free of charge, to any person obtaining a copy
