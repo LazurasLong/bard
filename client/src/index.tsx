@@ -9,6 +9,7 @@ import client from './client';
 import { ApolloProvider } from "react-apollo";
 
 import { WelcomeContainer } from './containers/Welcome';
+import Login from './containers/Login';
 import CreateUser from './containers/CreateUser';
 import AdventureContainer from './containers/Adventures';
 
@@ -19,8 +20,9 @@ ReactDOM.render((
   <ApolloProvider client={client}>
     <Router>
       <main>
-        <Route exact path="/" component={WelcomeContainer}/>
+        <Route exact path="/" component={WelcomeContainer} />
         <Route path="/create-user" component={CreateUser} />
+        <Route path="/login" component={Login} />
         <Route path="/adventures" component={AdventureContainer} />
       </main>
     </Router>
