@@ -8,6 +8,10 @@ import Form from '../components/Form';
 import Link from '../components/Link';
 import Submit from '../components/Submit';
 
+interface Input {
+  value: string
+}
+
 interface Props { }
 
 interface State {
@@ -54,8 +58,8 @@ class CreateUser extends React.Component<Props, State> {
   }
 
   render() {
-    let input: any;
-    console.log(this.state.auth);
+    let input: Input;
+    const { id, email } = this.state.auth;
 
     return (
       <Mutation mutation={CREATE_USER}>
@@ -68,9 +72,9 @@ class CreateUser extends React.Component<Props, State> {
                 createUser({
                   variables:
                   {
-                    id: '',
+                    id,
+                    email,
                     name: input.value,
-                    email: ''
                   }
                 });
 

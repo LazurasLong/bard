@@ -33,9 +33,15 @@ export default class extends React.Component<Props, State> {
       const res = await fetch(`${window.location.origin}/auth${window.location.search}`);
       const json = await res.json();
       const { sub, email, token } = json;
-      const userInfo = { sub, email, token, isAuthorized: true };
+      const userInfo = {
+        id: sub,
+        email,
+        token,
+        isAuthorized: true
+      };
 
       window.localStorage.setItem('bard-auth', JSON.stringify(userInfo));
+
       this.setState({
         id: sub,
         isAuthorized: true

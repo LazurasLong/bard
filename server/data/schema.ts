@@ -59,9 +59,9 @@ async function getUsers() {
   }
 }
 
-async function insertUser(id, name, email) {
+async function insertUser(id: string, name: string, email: string) {
   try {
-    const res = await db.query(`INSERT INTO users VALUES('${id}', '${name}', ${false}, ${email});`);
+    const res = await db.query(`INSERT INTO users VALUES('${id}', '${name}', ${false}, '${email}');`);
 
     return res;
   } catch (err) {
