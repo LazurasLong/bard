@@ -11,7 +11,10 @@ app.use('/auth', (req, res) => {
   const auth = new OAuth(req.query);
 
   auth.makeRequest()
-    .then(token => res.send(token));
+    .then(response => {
+      res.json(response);
+      res.redirect('http://localhost:3000/dashboard');
+    });
 });
 
 app.use(

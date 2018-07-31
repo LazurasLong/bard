@@ -33,7 +33,9 @@ export default class extends React.Component<Props, State> {
           if (error) return `Error: ${error.message}`;
 
           return (
-            <a href={data.OAuth.googleUrl}>Sign in with Google</a>
+            <CenteredWrapper>
+              <a href={data.OAuth.googleUrl}>Sign in with Google</a>
+            </CenteredWrapper>
           )
         }}
       </Query>

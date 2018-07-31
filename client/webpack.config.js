@@ -13,8 +13,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/
@@ -43,7 +42,7 @@ module.exports = {
 
 module.exports.serve = {
   add: (app, middleware, options) => {
-    app.use(convert(proxy('/graphql', { 
+    app.use(convert(proxy(['/graphql', '/auth'], {
       target: 'http://localhost:8080'
     })));
     app.use(convert(history()));
