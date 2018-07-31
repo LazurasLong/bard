@@ -4,7 +4,20 @@
 Bard is a tool that will allow you to run your games with ease. 
 
 ## Setup
-First, you're going to need to install postgres.
+First, you're going to need to install postgres and clone this repository:
+
+```
+git clone git@github.com:kevoneil/bard.git
+```
+
+## Create an .env file
+Create a `.env` file with the following environment keys:
+```
+export PGPORT=5432
+export PGDATABASE=bard
+export PGUSER=usernamme
+```
+You'll also need the credientals for authentication, please send me an email for more details.
 
 ## License
 Permission is hereby granted, free of charge, to any person obtaining a copy
