@@ -29,6 +29,20 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
+--
+-- Name: citext; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS citext WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION citext; Type: COMMENT; Schema: -; Owner: -
+--
+
+COMMENT ON EXTENSION citext IS 'data type for case-insensitive character strings';
+
+
 SET default_tablespace = '';
 
 SET default_with_oids = false;
@@ -40,7 +54,8 @@ SET default_with_oids = false;
 CREATE TABLE public.users (
     id character varying(40) NOT NULL,
     name character varying(20) NOT NULL,
-    is_admin boolean DEFAULT false NOT NULL
+    is_admin boolean DEFAULT false NOT NULL,
+    email public.citext
 );
 
 
@@ -75,7 +90,7 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.users (id, name, is_admin) FROM stdin;
+COPY public.users (id, name, is_admin, email) FROM stdin;
 \.
 
 
@@ -84,6 +99,14 @@ COPY public.users (id, name, is_admin) FROM stdin;
 --
 
 SELECT pg_catalog.setval('public.users_id_seq', 1, false);
+
+
+--
+-- Name: users users_email_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT users_email_key UNIQUE (email);
 
 
 --

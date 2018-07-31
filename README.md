@@ -10,7 +10,7 @@ First, you're going to need to install postgres and clone this repository:
 git clone git@github.com:kevoneil/bard.git
 ```
 
-## Create an .env file
+### Create an .env file
 Create a `.env` file with the following environment keys:
 ```
 export PGPORT=5432
@@ -18,6 +18,34 @@ export PGDATABASE=bard
 export PGUSER=usernamme
 ```
 You'll also need the credientals for authentication, please send me an email for more details.
+
+### Create database
+Run this command to create the database and tables that you will need for development:
+
+```
+cd bin && source create-fake-data.sh
+```
+
+### Install dependencies
+Install depdencies via yarn:
+
+```
+yarn
+```
+
+### Running development servers
+
+Finally, you will need to run the front end and back end servers:
+
+**Backend**:
+```
+yarn dev:server
+```
+
+**Frontend** 
+```
+yarn dev:client
+```
 
 ## License
 Permission is hereby granted, free of charge, to any person obtaining a copy
