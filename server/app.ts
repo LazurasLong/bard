@@ -13,7 +13,9 @@ app.use('/auth', (req, res) => {
   auth.makeRequest()
     .then(response => {
       res.json(response);
-      res.redirect('http://localhost:3000/dashboard');
+    })
+    .catch(err => {
+      console.error(err);
     });
 });
 

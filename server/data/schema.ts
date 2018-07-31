@@ -5,7 +5,7 @@ import { makeExecutableSchema } from 'graphql-tools';
 const CLIENT_ID = process.env.CLIENT_ID;
 const SECRET = process.env.SECRET;
 const SCOPE = encodeURIComponent('openid email');
-const REDIRECT_URI = encodeURIComponent(`http://localhost:3000/auth`);
+const REDIRECT_URI = encodeURIComponent('http://localhost:3000/google');
 const url: string = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&response_type=code&scope=${SCOPE}&redirect_uri=${REDIRECT_URI}`;
 
 const OAuth = {

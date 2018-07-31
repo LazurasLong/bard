@@ -6,11 +6,22 @@ interface Props { }
 
 export default class extends React.Component<Props> {
 
-  componentDidMount() {
-    fetch(`${window.location.origin}/auth`).then(res => console.log(res));
+  async componentDidMount() {
+
+    try {
+      const res = await fetch(`${window.location.origin}/auth${window.location.search}`);
+      const json = await res.json();
+      const { sub, email } = json;
+
+      const userInfo = { sub, email };
+
+      window.localStorage.setItem('token', JSON.stringify(userInfo));
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   render() {
-    return <div />;
+    return <React.Fragment />
   }
 }

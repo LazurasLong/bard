@@ -24,7 +24,7 @@ ReactDOM.render((
         <Route exact path="/" component={WelcomeContainer} />
         <Route path="/create-user" component={CreateUser} />
         <Route path="/login" component={Login} />
-        <Route path="/auth" component={GoogleAuth} />
+        <Route path="/google" component={GoogleAuth} />
         <Route path="/adventures" component={AdventureContainer} />
       </main>
     </Router>
