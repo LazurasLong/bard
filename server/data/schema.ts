@@ -79,7 +79,7 @@ const resolvers = {
   Mutation: {
     createUser: (_, { id, name, email }) => {
       insertUser(id, name, email);
-      return { id, name };
+      return { id, name, email };
     }
   }
 };

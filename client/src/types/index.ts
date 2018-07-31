@@ -9,6 +9,13 @@ export interface User {
   username: string;
 }
 
+export interface Auth {
+  __typename?: string;
+  id?: string;
+  email?: string;
+  token?: string;
+}
+
 export interface Users {
   users: Array<User>;
 }

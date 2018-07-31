@@ -1,25 +1,27 @@
 
-import * as uuid from 'uuid/v4';
 import * as React from 'react';
 import gql from 'graphql-tag';
 import { Mutation } from 'react-apollo';
+import { Auth } from '../types';
 
 import Form from '../components/Form';
 import Link from '../components/Link';
 import Submit from '../components/Submit';
-import { withClientState } from 'apollo-link-state';
 
-interface Props {}
+interface Props { }
+
 interface State {
+  auth: Auth,
   username: string,
   hasSubmittedUsername: boolean
 }
 
 const CREATE_USER = gql`
-  mutation createUser($id: String!, $name: String!) {
-    createUser(id: $id, name: $name) {
+  mutation createUser($id: String!, $name: String!, $email: String!) {
+    createUser(id: $id, name: $name, email: $email) {
       id,
-      name
+      name,
+      email
     }
   }
 `;
@@ -29,12 +31,21 @@ class CreateUser extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      username: "",
+      auth: {},
+      username: '',
       hasSubmittedUsername: false
     };
 
     this.handleChange = this.handleChange.bind(this);
   }
+
+  componentDidMount() {
+    const auth = window.localStorage.getItem('bard-auth');
+    const authJSON = JSON.parse(auth);
+
+    this.setState({ auth: authJSON });
+  }
+
 
   handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     this.setState({
@@ -44,6 +55,7 @@ class CreateUser extends React.Component<Props, State> {
 
   render() {
     let input: any;
+    console.log(this.state.auth);
 
     return (
       <Mutation mutation={CREATE_USER}>
@@ -53,11 +65,13 @@ class CreateUser extends React.Component<Props, State> {
               onSubmit={e => {
                 e.preventDefault();
 
-                createUser({ variables: 
-                  { 
-                    id: uuid(),
-                    name: input.value
-                  } 
+                createUser({
+                  variables:
+                  {
+                    id: '',
+                    name: input.value,
+                    email: ''
+                  }
                 });
 
                 this.setState({
@@ -69,9 +83,9 @@ class CreateUser extends React.Component<Props, State> {
                 input = node;
               }} onChange={this.handleChange} required />
 
-              <Submit disabled={this.state.username.length < 1 } type="Submit" value="Submit" />
+              <Submit disabled={this.state.username.length < 1} type="Submit" value="Submit" />
             </Form>
-            { this.state.hasSubmittedUsername &&
+            {this.state.hasSubmittedUsername &&
               <Link to="/adventures">Start an adventure!</Link>
             }
           </React.Fragment>

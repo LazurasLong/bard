@@ -59,7 +59,7 @@ export default class extends React.Component<Props, State> {
             return <Redirect to="/create-user" />
           }
 
-          return <div />;
+          return <Redirect to="/dashboard" />;
         }}
       </Query>
     );
