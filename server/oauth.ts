@@ -33,7 +33,12 @@ export default class {
       const { tokens } = await oauth2Client.getToken(this.code);
 
       oauth2Client.setCredentials(tokens);
-      return decode(oauth2Client.credentials.id_token);
+      const userDetails = decode(oauth2Client.credentials.id_token);
+
+      return {
+        ...userDetails,
+        token: oauth2Client.credentials.id_token
+      };
     } catch (err) {
       throw new Error(err);
     }
