@@ -1,7 +1,8 @@
 import * as React from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
-import Welcome from "../components/Welcome";
+import Welcome from '../components/Welcome';
+import Link from '../components/Link';
 
 interface FormEvent extends React.FormEvent<HTMLInputElement> {
   currentTarget: any;

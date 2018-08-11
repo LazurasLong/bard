@@ -11,14 +11,13 @@ interface Props {
 export default function Welcome({ user }: Props) {
   return (
     <CenteredWrapper>
-      { user ? (
-        <Title>Welcome back, { user }!</Title>
+      {user ? (
+        <Title>Welcome back, {user}!</Title>
       ) : (
-        <React.Fragment>
-          <Title>What is your name?</Title>
-          <Link to="/create-user">Let's begin</Link>
-        </React.Fragment>
-      )}
+          <React.Fragment>
+            <Link to="/Login">Login</Link>
+          </React.Fragment>
+        )}
     </CenteredWrapper>
   );
 }
