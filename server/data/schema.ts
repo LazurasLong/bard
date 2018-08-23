@@ -52,6 +52,7 @@ const typeDefs = `
 async function getUsers() {
   try {
     const res = await db.query(`SELECT * from users`);
+    console.log('REEEES', res);
 
     return res.rows;
   } catch (err) {
@@ -61,7 +62,9 @@ async function getUsers() {
 
 async function insertUser(id: string, name: string, email: string) {
   try {
-    const res = await db.query(`INSERT INTO users VALUES('${id}', '${name}', ${false}, '${email}');`);
+    const res = await db.query(
+      `INSERT INTO users VALUES('${id}', '${name}', ${false}, '${email}');`
+    );
 
     return res;
   } catch (err) {
@@ -73,7 +76,7 @@ const resolvers = {
   Query: {
     OAuth: () => OAuth,
     users: async () => await getUsers(),
-    user: (_, { id }) => find(users, { id }),
+    user: (_, { id }) => find(users, { id })
   },
 
   Mutation: {

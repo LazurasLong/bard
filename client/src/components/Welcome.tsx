@@ -5,8 +5,8 @@ import Link from './Link';
 import CenteredWrapper from './CenteredWrapper';
 
 interface Props {
-  user?: any
-};
+  user?: any;
+}
 
 export default function Welcome({ user }: Props) {
   return (
@@ -14,10 +14,10 @@ export default function Welcome({ user }: Props) {
       {user ? (
         <Title>Welcome back, {user}!</Title>
       ) : (
-          <React.Fragment>
-            <Link to="/Login">Login</Link>
-          </React.Fragment>
-        )}
+        <React.Fragment>
+          <Link to="/Login">Login</Link>
+        </React.Fragment>
+      )}
     </CenteredWrapper>
   );
 }
