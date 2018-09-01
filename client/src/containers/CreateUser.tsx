@@ -5,6 +5,7 @@ import { Auth } from '../types';
 
 import Form from '../components/Form';
 import Link from '../components/Link';
+import Input from '../components/Input';
 import Submit from '../components/Submit';
 import CenteredWrapper from '../components/CenteredWrapper';
 
@@ -81,8 +82,8 @@ class CreateUser extends React.Component<Props, State> {
                   });
                 }}
               >
-                <input
-                  ref={node => {
+                <Input
+                  ref={(node: Node) => {
                     input = node;
                   }}
                   onChange={this.handleChange}

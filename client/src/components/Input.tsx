@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export default styled.input`
+  display: block;
   width: 100%;
   font-size: 1.2rem;
   margin: 0 auto;
