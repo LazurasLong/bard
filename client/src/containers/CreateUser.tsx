@@ -9,10 +9,6 @@ import Input from '../components/Input';
 import Submit from '../components/Submit';
 import CenteredWrapper from '../components/CenteredWrapper';
 
-interface Input {
-  value: string;
-}
-
 interface Props {}
 
 interface State {
@@ -57,8 +53,8 @@ class CreateUser extends React.Component<Props, State> {
   }
 
   render() {
-    let input: Input;
     const { id, email } = this.state.auth;
+    let input: HTMLInputElement;
 
     return (
       <Mutation mutation={CREATE_USER}>
@@ -83,7 +79,7 @@ class CreateUser extends React.Component<Props, State> {
                 }}
               >
                 <Input
-                  ref={(node: Node) => {
+                  ref={(node: any): void => {
                     input = node;
                   }}
                   onChange={this.handleChange}
