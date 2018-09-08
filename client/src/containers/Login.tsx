@@ -4,10 +4,10 @@ import { Query } from 'react-apollo';
 
 import CenteredWrapper from '../components/CenteredWrapper';
 
-interface Props { }
+interface Props {}
 
 interface State {
-  username: string
+  username: string;
 }
 
 const GET_GOOGLE_URL = gql`

@@ -41,6 +41,7 @@ module.exports = {
 };
 
 module.exports.serve = {
+  hotClient: true,
   add: (app, middleware, options) => {
     app.use(convert(proxy(['/graphql', '/auth'], {
       target: 'http://localhost:8080'
