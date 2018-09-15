@@ -1,10 +1,10 @@
-import * as React from 'react';
-import Adventures from '../components/Adventures';
+import * as React from "react";
+import Adventures from "../components/Adventures";
 
-import gql from 'graphql-tag';
-import Adventure from 'Types';
-import { Query } from 'react-apollo';
-import { withRouter } from 'react-router-dom';
+import gql from "graphql-tag";
+import Adventure from "Types";
+import { Query } from "react-apollo";
+import { withRouter } from "react-router-dom";
 
 interface Adventures {
   adventures: Array<Adventure>;
@@ -21,12 +21,10 @@ const GET_ADVENTURES = gql`
 export default withRouter(() => (
   <Query query={GET_ADVENTURES}>
     {({ loading, error, data }) => {
-      if (loading) return 'Loading...';
+      if (loading) return "Loading...";
       if (error) return `Error! ${error.message}`;
 
-      return (
-        <Adventures adventures={data.adventures} />
-      );
+      return <Adventures adventures={data.adventures} />;
     }}
   </Query>
 ));

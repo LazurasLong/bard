@@ -1,10 +1,10 @@
-import db from '../db';
-import { find } from 'lodash';
-import { makeExecutableSchema } from 'graphql-tools';
+import db from "../db";
+import { find } from "lodash";
+import { gql } from "apollo-server-express";
 
 const CLIENT_ID = process.env.CLIENT_ID;
-const SCOPE = encodeURIComponent('openid email');
-const REDIRECT_URI = encodeURIComponent('http://localhost:3000/google');
+const SCOPE = encodeURIComponent("openid email");
+const REDIRECT_URI = encodeURIComponent("http://localhost:3000/google");
 const url: string = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&response_type=code&scope=${SCOPE}&redirect_uri=${REDIRECT_URI}`;
 
 const OAuth = {
@@ -13,7 +13,7 @@ const OAuth = {
 
 let users: Array<Object> = [];
 
-const typeDefs = `
+const typeDefs = gql`
   type OAuth {
     googleUrl: String
   }
@@ -26,14 +26,14 @@ const typeDefs = `
     adventures: [Adventure]
   }
 
-  type Adventure { 
+  type Adventure {
     id: String!
     title: String
     number: Int
-    campaign: String 
+    campaign: String
   }
 
-  type Query { 
+  type Query {
     users: [User]
     OAuth: OAuth
     user(id: String!): User
@@ -41,18 +41,13 @@ const typeDefs = `
   }
 
   type Mutation {
-    createUser (
-      id: String!
-      name: String!
-      email: String!
-    ): User
+    createUser(id: String!, name: String!, email: String!): User
   }
 `;
 
 async function getUsers() {
   try {
     const res = await db.query(`SELECT * from users`);
-    console.log('REEEES', res);
 
     return res.rows;
   } catch (err) {
@@ -68,7 +63,7 @@ async function insertUser(id: string, name: string, email: string) {
 
     return res;
   } catch (err) {
-    throw new Error('User already exists');
+    throw new Error("User already exists");
   }
 }
 
@@ -87,7 +82,4 @@ const resolvers = {
   }
 };
 
-export default makeExecutableSchema({
-  typeDefs,
-  resolvers
-});
+export { typeDefs, resolvers };
